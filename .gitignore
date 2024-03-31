@@ -1,5 +1,6 @@
 keys/*
-aligulac_export/*
+*/keys/*
+aligulac_export/*sql*
 postgres-data/*
 postgres-data/
 
