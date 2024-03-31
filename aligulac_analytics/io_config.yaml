@@ -1,0 +1,14 @@
+version: 0.1.1
+default:
+  # Google
+  GOOGLE_SERVICE_ACC_KEY_FILEPATH: "/home/src/keys/mage-key.json"
+  GOOGLE_LOCATION: US # Optional
+  
+  # PostgresSQL
+  POSTGRES_CONNECT_TIMEOUT: 10
+  POSTGRES_DBNAME: aligulac_db
+  POSTGRES_SCHEMA: public # Optional
+  POSTGRES_USER: admin
+  POSTGRES_PASSWORD: aligulacdb
+  POSTGRES_HOST: postgres-aligulac
+  POSTGRES_PORT: 5432

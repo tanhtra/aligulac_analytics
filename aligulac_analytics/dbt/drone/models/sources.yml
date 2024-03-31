@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: aligulac
+    database: aligulac-dezc
+    schema: raw
+    tables:
+        - name: players
+        - name: matches
+        - name: events
+        - name: earnings

@@ -1,0 +1,32 @@
+# https://docs.getdbt.com/docs/core/connect-data-platform/profiles.yml
+drone:
+  target: raw
+  outputs:
+    raw:
+      type: bigquery
+      method: service-account
+      project: aligulac-dezc
+      dataset: raw
+      threads: 4 # Must be a value of 1 or greater
+      keyfile: /home/src/keys/mage-key.json
+    bronze:
+      type: bigquery
+      method: service-account
+      project: aligulac-dezc
+      dataset: bronze
+      threads: 4 # Must be a value of 1 or greater
+      keyfile: /home/src/keys/mage-key.json
+    silver:
+      type: bigquery
+      method: service-account
+      project: aligulac-dezc
+      dataset: silver
+      threads: 4 # Must be a value of 1 or greater
+      keyfile: /home/src/keys/mage-key.json
+    gold:
+      type: bigquery
+      method: service-account
+      project: aligulac-dezc
+      dataset: gold
+      threads: 4 # Must be a value of 1 or greater
+      keyfile: /home/src/keys/mage-key.json

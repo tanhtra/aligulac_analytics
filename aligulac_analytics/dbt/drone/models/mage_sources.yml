@@ -1,0 +1,35 @@
+sources:
+- description: Dataframes Mage upstream blocks
+  loader: mage
+  name: mage_drone
+  schema: bronze
+  tables:
+  - description: Dataframe for block `raw_bq__players` of the `bronze_players` mage
+      pipeline.
+    identifier: mage_bronze_players_raw_bq__players
+    meta:
+      block_uuid: raw_bq__players
+      pipeline_uuid: bronze_players
+    name: bronze_players_raw_bq__players
+  - description: Dataframe for block `raw_bq__earnings` of the `bronze_earnings` mage
+      pipeline.
+    identifier: mage_bronze_earnings_raw_bq__earnings
+    meta:
+      block_uuid: raw_bq__earnings
+      pipeline_uuid: bronze_earnings
+    name: bronze_earnings_raw_bq__earnings
+  - description: Dataframe for block `raw_bq__events` of the `bronze_events` mage
+      pipeline.
+    identifier: mage_bronze_events_raw_bq__events
+    meta:
+      block_uuid: raw_bq__events
+      pipeline_uuid: bronze_events
+    name: bronze_events_raw_bq__events
+  - description: Dataframe for block `raw_bq__matches` of the `bronze_matches` mage
+      pipeline.
+    identifier: mage_bronze_matches_raw_bq__matches
+    meta:
+      block_uuid: raw_bq__matches
+      pipeline_uuid: bronze_matches
+    name: bronze_matches_raw_bq__matches
+version: 2
