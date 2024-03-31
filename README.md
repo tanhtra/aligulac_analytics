@@ -17,7 +17,7 @@ Google Cloud Provider is the primary cloud resource being used (for now):
 
 ## Installation
 
-#### .ENV file
+### .ENV file
 
 Copy and rename the supplied `dev.env` file to `.env`
 
@@ -31,7 +31,7 @@ POSTGRES_HOST=postgres_aligulac
 PG_HOST_PORT=5432
 ```
 
-#### Google Cloud Platform
+### Google Cloud Platform
 
 Create Service account(s) for Mage and Terraform.
 
@@ -41,15 +41,8 @@ For both Service Accounts the below roles were used
 
 Export the keys as `.json` and drop them into their respective locations in
 
-``` 
-# for the Mage and dbt,
-# next to the mage-dbt_key_location.txt placeholder
-keys/
-
-# for Terraform,
-# next to the terraform_key_location.txt placeholder
-terraform/keys/ 
-```
+- `/keys/` for the Mage and dbt, next to the `mage-dbt_key_location.txt` placeholder
+- `/terraform/keys/` for Terraform, next to the `terraform_key_location.txt` placeholder
 
 ### Terraform (optional)
 
@@ -62,3 +55,28 @@ Terraform code are located in the `/terraform/` directory and a `terraform apply
     - gold
 
 Note: In some installations - the BigQuery API may need to be activated
+
+### Mage
+
+The Mage installation are located in `/aligulac_analytics/` and a `docker compose up` to activate the container.
+
+Access the Mage interface via `http://localhost:6789`
+
+### Local Database Seed
+
+In the very likely scenario of the PostgreSQL Db being empty you can generate the required data by downloading the database dump file from [aligulac.sql](http://static.aligulac.com/aligulac.sql) or [aligulac.sql.gz](http://static.aligulac.com/aligulac.sql.gz)
+
+Note: the `/aligulac_export/` have been attached to the postgres installation as `/tmp/aligulac_export/`
+
+```
+wget -P /aligulac_export http://static.aligulac.com/aligulac.sql
+```
+And restoring the db via
+
+```
+docker exec -i postgres-aligulac psql -U admin aligulac_db < tmp/aligulac_export/aligulac.sql
+```
+or
+```
+psql -U admin aligulac_db < tmp/aligulac_export/aligulac.sql
+```
