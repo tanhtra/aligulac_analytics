@@ -4,6 +4,12 @@ There was an attempt at
 Hello friends and family and other creatures of the sea.  
 This is an end-to-end analytics pipeline for starcraft 2 matches using the Aligulac dataset from [Aligulac](http://www.aligulac.com).
 
+## Description
+
+Here we will attempt to explore the state of the game with regards to the pro-gamer's activity.  Starcraft 2 have always had a sizeable audiance and activity around it but over the years players have noticed that its popularity is starting to wane.  So here we will try to see if that is the case and if SC2 is indeed a dead game.
+
+## Tools
+
 The pipeline comprises of multiple parts - most notably are: 
 - PostgreSQL to restore the Aligulac database locally (inside a docker container with Mage.AI)
 - [Mage.AI](https://www.mage.ai) as the primary orchestrator and secondary data-transformation tool
@@ -14,6 +20,11 @@ Google Cloud Provider is the primary cloud resource being used (for now):
 - BigQuery as the Data Warehouse solution with Raw, Bronze, Silver and Gold stages
 - Cloud Storage bucket as the Data Lake to store various Parquet files and table
 - and, Data Studio as the dashboarding tool
+
+## Dashboard and Visuals
+
+Streamlit cloud is being used as a dashboarding solution (for now).  
+The streamlit dashboard can be accessed here [Aligulac Analytics on Steamlit](https://aligulac-analytics.streamlit.app/)
 
 ## Installation
 
@@ -33,9 +44,9 @@ PG_HOST_PORT=5432
 
 ### Google Cloud Platform
 
-Create Service account(s) for Mage and Terraform.
+Create Service account(s) for Mage, Terraform and Streamlit.
 
-For both Service Accounts the below roles were used
+For both Mage and Terraform Service Accounts uses the roles listed below:
 - Cloud Storage Admin
 - BigQuery Admin
 
@@ -43,6 +54,11 @@ Export the keys as `.json` and drop them into their respective locations in
 
 - `/keys/` for the Mage and dbt, next to the `mage-dbt_key_location.txt` placeholder
 - `/terraform/keys/` for Terraform, next to the `terraform_key_location.txt` placeholder
+
+#### Streamlit Service Account
+Streamlit will require its own separate service account to access the datalake hosted on GCP's BigQuery.
+
+Please follow the instructions in [Connecting Streamlit to BigQuery](https://docs.streamlit.io/knowledge-base/tutorials/databases/bigquery)
 
 ### Terraform (optional)
 
