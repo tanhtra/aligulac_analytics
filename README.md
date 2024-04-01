@@ -15,6 +15,10 @@ Google Cloud Provider is the primary cloud resource being used (for now):
 - Cloud Storage bucket as the Data Lake to store various Parquet files and table
 - and, Data Studio as the dashboarding tool
 
+## Dashboard and Visuals
+
+Streamlit cloud is being used as a dashboarding solution (for now).  The streamlit dashboard can be accessed here [Aligulac Analytics on Steamlit](https://aligulac-analytics.streamlit.app/)
+
 ## Installation
 
 ### .ENV file
@@ -33,9 +37,9 @@ PG_HOST_PORT=5432
 
 ### Google Cloud Platform
 
-Create Service account(s) for Mage and Terraform.
+Create Service account(s) for Mage, Terraform and Streamlit.
 
-For both Service Accounts the below roles were used
+For both Mage and Terraform Service Accounts uses the roles listed below:
 - Cloud Storage Admin
 - BigQuery Admin
 
@@ -43,6 +47,11 @@ Export the keys as `.json` and drop them into their respective locations in
 
 - `/keys/` for the Mage and dbt, next to the `mage-dbt_key_location.txt` placeholder
 - `/terraform/keys/` for Terraform, next to the `terraform_key_location.txt` placeholder
+
+#### Streamlit Service Account
+Streamlit will require its own separate service account to access the datalake hosted on GCP's BigQuery.
+
+Please follow the instructions in [Connecting Streamlit to BigQuery](https://docs.streamlit.io/knowledge-base/tutorials/databases/bigquery)
 
 ### Terraform (optional)
 
