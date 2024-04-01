@@ -105,6 +105,14 @@ or
 ```
 psql -U admin aligulac_db < tmp/aligulac_export/aligulac.sql
 ```
+ 
+### Pipelines
+
+Within Mage there should be two "Core" pipelines.  
+- Run the `Setup` pipeline to move the data from Local PostgreSQL to GCS
+- Run the `Primary`pipeline to build the Data Warehouse using the files inside GCS
+
+
 
 ### Streamlit Cloud (optional)
 
