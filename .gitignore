@@ -4,6 +4,8 @@ aligulac_export/*sql*
 postgres-data/*
 postgres-data/
 
+secrets.toml
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

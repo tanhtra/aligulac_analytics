@@ -1,1 +1,3 @@
 mage-ai[all]
+google-cloud-bigquery
+pandas-gbq
