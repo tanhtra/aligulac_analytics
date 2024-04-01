@@ -21,6 +21,15 @@ Google Cloud Provider is the primary cloud resource being used (for now):
 - Cloud Storage bucket as the Data Lake to store various Parquet files and table
 - and, Data Studio as the dashboarding tool
 
+## Overall view and steps
+
+![Overall look at Aligulac Analytics](https://github.com/tanhtra/aligulac_analytics/blob/main/readme_files/Aligulac_Analytics.png?raw=true)
+
+1. The Aligulac Database extract gets downloaded and restored into the local postgresql installation
+2. Mage is used to funnel the extracted database into a parquet file and table format within Google Cloud Storage
+3. dbt-Mage is then used to transform the GCS stored data into BigQuery's Raw, Bronze, Silver and Gold layer
+4. Data in the gold layer can then be consumed by Streamlit cloud
+
 ## Dashboard and Visuals
 
 Streamlit cloud is being used as a dashboarding solution (for now).  
@@ -55,7 +64,7 @@ Export the keys as `.json` and drop them into their respective locations in
 - `/keys/` for the Mage and dbt, next to the `mage-dbt_key_location.txt` placeholder
 - `/terraform/keys/` for Terraform, next to the `terraform_key_location.txt` placeholder
 
-#### Streamlit Service Account
+#### Streamlit Service Account (optional)
 Streamlit will require its own separate service account to access the datalake hosted on GCP's BigQuery.
 
 Please follow the instructions in [Connecting Streamlit to BigQuery](https://docs.streamlit.io/knowledge-base/tutorials/databases/bigquery)
@@ -96,3 +105,11 @@ or
 ```
 psql -U admin aligulac_db < tmp/aligulac_export/aligulac.sql
 ```
+
+### Streamlit Cloud (optional)
+
+Follow the Streamlit Cloud sign-up process.  [Streamlit Community edition (Free)](https://streamlit.io/cloud)
+
+As mentioned earlier, follow the instructions in [Connecting Streamlit to BigQuery](https://docs.streamlit.io/knowledge-base/tutorials/databases/bigquery)
+
+Use the `streamlit__aligulac.py` file in the repo to generate the Streamlit dashboard.
