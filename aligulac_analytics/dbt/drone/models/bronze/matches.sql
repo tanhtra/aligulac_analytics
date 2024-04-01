@@ -5,6 +5,8 @@ SELECT
     plb_id AS player_b_id,
     sca AS score_a,
     scb AS score_b,
+    rca AS race_a,
+    rcb AS race_b,
     event AS match_event_type,
     eventobj_id AS event_id,
     game AS match_expansion,

@@ -1,0 +1,7 @@
+version: 2
+
+models:
+    - name: earnings
+    - name: events
+    - name: matches
+    - name: players

@@ -34,3 +34,4 @@ models:
   drone:
     bronze:
       +materialized: table
+    +materialized: table

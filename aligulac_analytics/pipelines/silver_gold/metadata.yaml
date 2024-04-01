@@ -1,0 +1,228 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    dbt: {}
+    dbt_profile_target: silver
+    dbt_profiles_file_path: dbt/drone/profiles.yml
+    dbt_project_name: dbt/drone
+    disable_query_preprocessing: false
+    export_write_policy: append
+    file_path: dbt/drone/models/silver/dim_players.sql
+    file_source:
+      path: dbt/drone/models/silver/dim_players.sql
+      project_path: dbt/drone
+    limit: 1000
+    use_raw_sql: false
+  downstream_blocks:
+  - dbt/drone/models/total_earnings
+  - dbt/drone/models/player_intensity
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: dim_players
+  retry_config: null
+  status: executed
+  timeout: null
+  type: dbt
+  upstream_blocks: []
+  uuid: dbt/drone/models/silver/dim_players
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    dbt_profile_target: silver
+    dbt_profiles_file_path: dbt/drone/profiles.yml
+    dbt_project_name: dbt/drone
+    file_path: dbt/drone/models/silver/dim_events.sql
+    file_source:
+      path: dbt/drone/models/silver/dim_events.sql
+      project_path: dbt/drone
+    limit: '10'
+  downstream_blocks:
+  - dbt/drone/models/total_earnings
+  - dbt/drone/models/match_intensity
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: dim_events
+  retry_config: null
+  status: executed
+  timeout: null
+  type: dbt
+  upstream_blocks: []
+  uuid: dbt/drone/models/silver/dim_events
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    dbt_profile_target: silver
+    dbt_profiles_file_path: dbt/drone/profiles.yml
+    dbt_project_name: dbt/drone
+    file_path: dbt/drone/models/silver/fct_earnings.sql
+    file_source:
+      path: dbt/drone/models/silver/fct_earnings.sql
+      project_path: dbt/drone
+    limit: '10'
+  downstream_blocks:
+  - dbt/drone/models/total_earnings
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: fct_earnings
+  retry_config: null
+  status: executed
+  timeout: null
+  type: dbt
+  upstream_blocks: []
+  uuid: dbt/drone/models/silver/fct_earnings
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    dbt_profile_target: silver
+    dbt_profiles_file_path: dbt/drone/profiles.yml
+    dbt_project_name: dbt/drone
+    file_path: dbt/drone/models/silver/dim_matches.sql
+    file_source:
+      path: dbt/drone/models/silver/dim_matches.sql
+      project_path: dbt/drone
+  downstream_blocks:
+  - dbt/drone/models/match_intensity
+  - dbt/drone/models/player_intensity
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: dim_matches
+  retry_config: null
+  status: executed
+  timeout: null
+  type: dbt
+  upstream_blocks: []
+  uuid: dbt/drone/models/silver/dim_matches
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    dbt_profile_target: silver
+    dbt_profiles_file_path: dbt/drone/profiles.yml
+    dbt_project_name: dbt/drone
+    file_path: dbt/drone/models/silver/fct_scores.sql
+    file_source:
+      path: dbt/drone/models/silver/fct_scores.sql
+      project_path: dbt/drone
+    limit: '10'
+  downstream_blocks:
+  - dbt/drone/models/player_intensity
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: fct_scores
+  retry_config: null
+  status: executed
+  timeout: null
+  type: dbt
+  upstream_blocks: []
+  uuid: dbt/drone/models/silver/fct_scores
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    dbt_profile_target: gold
+    dbt_profiles_file_path: dbt/drone/profiles.yml
+    dbt_project_name: dbt/drone
+    file_path: dbt/drone/models/total_earnings.sql
+    file_source:
+      path: dbt/drone/models/total_earnings.sql
+      project_path: dbt/drone
+    limit: '10'
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: total_earnings
+  retry_config: null
+  status: executed
+  timeout: null
+  type: dbt
+  upstream_blocks:
+  - dbt/drone/models/silver/fct_earnings
+  - dbt/drone/models/silver/dim_players
+  - dbt/drone/models/silver/dim_events
+  uuid: dbt/drone/models/total_earnings
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    dbt_profile_target: gold
+    dbt_profiles_file_path: dbt/drone/profiles.yml
+    dbt_project_name: dbt/drone
+    file_path: dbt/drone/models/match_intensity.sql
+    file_source:
+      path: dbt/drone/models/match_intensity.sql
+      project_path: dbt/drone
+    limit: '10'
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: match_intensity
+  retry_config: null
+  status: executed
+  timeout: null
+  type: dbt
+  upstream_blocks:
+  - dbt/drone/models/silver/dim_events
+  - dbt/drone/models/silver/dim_matches
+  uuid: dbt/drone/models/match_intensity
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    dbt_profile_target: gold
+    dbt_profiles_file_path: dbt/drone/profiles.yml
+    dbt_project_name: dbt/drone
+    file_path: dbt/drone/models/player_intensity.sql
+    file_source:
+      path: dbt/drone/models/player_intensity.sql
+      project_path: dbt/drone
+    limit: '10'
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: player_intensity
+  retry_config: null
+  status: executed
+  timeout: null
+  type: dbt
+  upstream_blocks:
+  - dbt/drone/models/silver/fct_scores
+  - dbt/drone/models/silver/dim_players
+  - dbt/drone/models/silver/dim_matches
+  uuid: dbt/drone/models/player_intensity
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-03-31 05:26:03.325571+00:00'
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: silver_gold
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: silver_gold
+variables_dir: /home/src/mage_data/aligulac_analytics
+widgets: []
