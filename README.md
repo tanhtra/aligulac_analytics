@@ -115,7 +115,7 @@ Within Mage there should be two "Core" pipelines.
 The Mage-DAG uses a mix of MAGE based blocks and dbt (below)
 ![Primary Mage-DAG](https://github.com/tanhtra/aligulac_analytics/blob/main/readme_files/Mage_DAGS.png?raw=true)
 
-![Primary Mage-DAG completion]()
+![Primary Mage-DAG completion](https://github.com/tanhtra/aligulac_analytics/blob/main/readme_files/Run_job.png?raw=true)
 
 ### Streamlit Cloud (optional)
 
