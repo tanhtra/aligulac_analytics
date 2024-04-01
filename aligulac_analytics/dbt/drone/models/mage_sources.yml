@@ -2,7 +2,7 @@ sources:
 - description: Dataframes Mage upstream blocks
   loader: mage
   name: mage_drone
-  schema: bronze
+  schema: silver
   tables:
   - description: Dataframe for block `raw_bq__players` of the `bronze_players` mage
       pipeline.
@@ -32,4 +32,28 @@ sources:
       block_uuid: raw_bq__matches
       pipeline_uuid: bronze_matches
     name: bronze_matches_raw_bq__matches
+  - description: Dataframe for block `raw_bq__earnings` of the `primary` mage pipeline.
+    identifier: mage_primary_raw_bq__earnings
+    meta:
+      block_uuid: raw_bq__earnings
+      pipeline_uuid: primary
+    name: primary_raw_bq__earnings
+  - description: Dataframe for block `raw_bq__players` of the `primary` mage pipeline.
+    identifier: mage_primary_raw_bq__players
+    meta:
+      block_uuid: raw_bq__players
+      pipeline_uuid: primary
+    name: primary_raw_bq__players
+  - description: Dataframe for block `raw_bq__matches` of the `primary` mage pipeline.
+    identifier: mage_primary_raw_bq__matches
+    meta:
+      block_uuid: raw_bq__matches
+      pipeline_uuid: primary
+    name: primary_raw_bq__matches
+  - description: Dataframe for block `raw_bq__events` of the `primary` mage pipeline.
+    identifier: mage_primary_raw_bq__events
+    meta:
+      block_uuid: raw_bq__events
+      pipeline_uuid: primary
+    name: primary_raw_bq__events
 version: 2

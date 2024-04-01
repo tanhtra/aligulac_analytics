@@ -221,7 +221,8 @@ run_pipeline_in_one_process: false
 settings:
   triggers: null
 spark_config: {}
-tags: []
+tags:
+- Prototype
 type: python
 uuid: silver_gold
 variables_dir: /home/src/mage_data/aligulac_analytics
